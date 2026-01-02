@@ -21,7 +21,7 @@ In XMiniGrid-Stateful, an LLM navigation agent picks up objects in a GridWorld e
 To run XMiniGrid-Stateful, do the following:
 ```bash
 cd xminigrid
-bash scripts/run.sh
+bash scripts/run.sh echo [your-model] trivial-21k
 ```
 
 ## PeopleJoin-QA-Stateful

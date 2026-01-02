@@ -1,9 +1,9 @@
 [project]
-name = "async-collab"
+name = "echo"
 version = "0.1.0"
-description = "PeopleJoin: LM Agents for Coordinating Multi-User Information Gathering"
+description = "ECHO: Experience Consolidation via Hindsight Optimization"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.11,<3.13"
 
 dependencies = [
     # async-friendly version of flask, for the back-end API
@@ -35,6 +35,8 @@ dependencies = [
     "nest-asyncio>=1.5.8",
     "evaluate>=0.4.1",
     "cer>=1.2.0",
+    "levenshtein>=0.26.0",  # Override cer's old version for Python 3.13 compatibility
+    "pyarrow>=18.0.0",  # Override streamlit's old version for Python 3.13 wheels
     "streamlit-tree-select>=0.0.5",
     "azure-identity>=1.15.0",
     "azure-keyvault-secrets>=4.7.0",
@@ -50,6 +52,11 @@ dependencies = [
     "scipy>=1.11.1",
     "python-pptx>=1.0.2",
     "nltk>=3.9.1",
+    # xminigrid dependencies
+    "imageio>=2.34.0",
+    "imageio-ffmpeg>=0.4.9",
+    "jax>=0.4.20",
+    "xminigrid>=0.5.0",
 ]
 
 [project.optional-dependencies]
@@ -104,6 +111,9 @@ src = [
   "src",
   "tests",
 ]
+
+[tool.hatch.build.targets.wheel]
+packages = ["peoplejoin", "xminigrid"]
 
 [build-system]
 requires = ["hatchling"]
